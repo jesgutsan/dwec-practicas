@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercici 8</title>
+</head>
+<body>
+    <h1>Loteria primitiva</h1>
+    <script>
+        function jugarPrimitiva() {
+            // Generar 6 números aleatoris entre 1 y 49
+            const numeroGuanyadors = []; 
+            while (numeroGuanyadors.length < 6) {
+                const numero = Math.floor(Math.random() * 49) + 1;
+                if (!numeroGuanyadors.includes(numero)) { 
+                numeroGuanyadors.push(numero); 
+                }
+            }
+          
+            // Demanar numeros al usuari 
+            const numerosUsuari = [];
+            while (numerosUsuari.length < 6) {
+                const numeroUsuari = parseInt(prompt("Introdueix un número entre 1 y 49:"));
+                if (!isNaN(numeroUsuari) && numeroUsuari >= 1 && numeroUsuari <= 49 && !numerosUsuari.includes(numeroUsuari)) {
+                    numerosUsuari.push(numeroUsuari);
+                } else {
+                    alert("Error. Introdueix un número entre 1 y 49 i que no estiga repetit");
+                }
+            }
+          
+            // Comparar números i contar els acerts
+            let acerts = 0;
+            for (let i = 0; i < numerosUsuari.length; i++) {
+                if (numeroGuanyadors.includes(numerosUsuari[i])) {
+                    acerts++;
+                }
+            }
+          
+            //Mostrar  resultats
+            alert(`Números guanyadors: ${numeroGuanyadors.join(', ')}`);
+            alert(`Els teus números: ${numerosUsuari.join(', ')}`);
+            alert(`Números acertats: ${acerts}`);
+        
+            console.log("Numeros Guanyadors: ", numeroGuanyadors)
+            console.log("Els teus números: ", numerosUsuari)
+            console.log("Números acertats: ", acerts)
+        }
+        
+        jugarPrimitiva();
+
+    </script>
+    
+</body>
+</html>
+<!-- 
+Fes un programa que genere 6 números aleatoris (sense repetir) entre 1 i 49, 
+simulant una aposta de la primitiva. A continuació, 
+l'usuari haurà d'introduir 6 números i el programa indicarà quants encerts ha tingut respecte als números generats aleatòriament. -->

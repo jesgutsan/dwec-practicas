@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercici 7 Quadrícula amb bombes</title>
+</head>
+<body>
+    <h1>Exercici 7: Quadrícula amb bombes</h1>
+    <script>
+        const files = 5;
+        const columnes = 5;
+        const numBombes = 10;
+
+        function crearMatriu() {
+            const matriu = new Array(files);
+            for(let i = 0; i < files; i++){
+                matriu[i] = new Array(columnes).fill("x");     
+            }
+            //Colocar bombes aleatories
+            let bombesColocades = 0;
+            while(bombesColocades < numBombes){
+                const fila = Math.floor(Math.random() * files);
+                const columna = Math.floor(Math.random() * columnes);
+                matriu[fila][columna] = "o";
+                bombesColocades++;
+            }
+            return matriu;
+        }
+        //Funció per a jugar
+        function jugar(){
+            const matriu = crearMatriu();
+            console.table(matriu);
+            let bombesTrovades = 0;
+            let eixir = false;
+
+            while(bombesTrovades < numBombes && !eixir){
+                const entrada = prompt("Introdueix 2 números entre el 0 i el 4 separats per un espai o escriu eixir per finalitzar el joc):");
+                //Comprovacio si l'usuari vol finalitzar el joc.
+                if(entrada.toLowerCase() === 'eixir'){
+                    alert("Has decidit acabar el joc")
+                    eixir = true;
+                    break;
+                }
+                const [x, y] = entrada.split (' ').map(Number);
+                if(x >= 0 && x < columnes && y >= 0 && y < files){
+                    if(matriu[y][x] === "o"){ //Comprova si hi ha una bomba
+                        alert("Boom! Bomba trovada");
+                        bombesTrovades++;
+                    } else {
+                        alert("No hi ha bombes en ixa posició");
+                    }
+                } else {
+                    alert("Coordenades incorrectes");
+                }
+            }
+            if(!eixir && bombesTrovades === numBombes){
+                alert("Has trovat totes les bombes!");
+            }
+        }
+        jugar();
+
+    </script>
+    
+</body>
+</html>
+
+<!-- Exercici 7: Quadrícula amb bombes
+Crea un programa que simule un camp de mines en una quadrícula de 5x5. 
+Hi ha 10 bombes amagades a coordenades aleatòries. 
+L'usuari ha d'introduir les coordenades X i Y, i el programa indicarà si hi ha una bomba o no en 
+aquesta posició. El joc continuarà fins que es descobrisquen totes les bombes 
+o l'usuari decideixi parar. -->
