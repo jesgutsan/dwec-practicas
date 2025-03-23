@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercici 2</title>
+</head>
+<body>
+    <h1>Exercici 2: Trobar el mínim i màxim d'un array</h1>
+    <script>
+        // Array de 15 números aleatoris entre 1 i 100
+        const numerosAleatoris = [];
+        for (let i = 0; i < 15; i++) {
+        numerosAleatoris.push(Math.floor(Math.random() * 101));
+        }
+
+        console.log("Números aleatoris:", numerosAleatoris);
+
+        // Iniciem la variable minim amb el primer numero de array, compara tots el numeros desde el primer valor
+        let minim = numerosAleatoris[0]; 
+        // Comença a comparar desde el segon numero "let i = 1" per que la posicio [0] ja esta guardada en minim
+        for (let i = 1; i < numerosAleatoris.length; i++) {
+            if (numerosAleatoris[i] < minim) {
+            minim = numerosAleatoris[i];
+            }
+        }
+
+        // Valor máxim
+        let maxim = numerosAleatoris[0];
+        for (let i = 1; i < numerosAleatoris.length; i++) {
+            if (numerosAleatoris[i] > maxim) {
+            maxim = numerosAleatoris[i];
+            }
+        }
+        console.log("Valor mínim:", minim);
+        console.log("Valor máxim:", maxim);
+       
+
+    </script>
+    
+</body>
+</html>
+
+<!-- Fes un programa que genere un array de 15 números enters aleatoris entre 1 i 100, i determine quin és el valor mínim i màxim de l'array. 
+No es permet l'ús de funcions predefinides com Math.min() o Math.max(). -->
