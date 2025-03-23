@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercici 3</title>
+</head>
+<body>
+    <h1>Índex de Massa Corporal (IMC)</h1>
+    <script>
+        // Demana l'altura a l'usuari i converteix la resposta en numero decimal
+        const altura = parseFloat(prompt("Introdueix l'atura en metres"));
+        const pes = parseFloat(prompt("Introdueix el pes"));
+        // Calcul del IMC
+        const imc = pes / (altura * altura);
+        // Variable buida que s'omplirá segons el resultat del IMC
+        let estat;
+        if(imc < 18.5){
+            estat = "Pes insuficient";
+            } 
+            else if (imc >= 18.5 && imc <=24.9){
+                estat = "Pes normal";
+            }
+            else if (imc >= 25 && imc <=29.9){
+                estat = "Sobrepès";
+            }
+            else {
+                estat = "Obesitat";
+            }
+            // toFixed(2) deixa 2 decimals al resultat
+            alert ("El IMC es de: " + imc.toFixed(2) + " i el teu estat es: " + estat);
+    </script>
+    
+</body>
+</html>
+
+<!-- Fes un programa que demane l'alçada (en metres) i el pes (en kg) d'una persona, i calcule el seu IMC (Índex de Massa Corporal) amb la fórmula:
+
+IMC = pes(kg) / alçada(m)^2
+
+Després, mostra el seu estat segons la següent taula:
+
+IMC < 18.5: Pes insuficient
+IMC 18.5 - 24.9: Pes normal
+IMC 25 - 29.9: Sobrepès
+IMC ≥ 30: Obesitat -->
