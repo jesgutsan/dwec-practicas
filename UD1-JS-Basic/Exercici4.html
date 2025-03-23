@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercici 4</title>
+</head>
+<body>
+    <h1>Ordenar un array</h1>
+    <script>
+        // Array de 15 numeros aleatoris de 0 a 100
+        // Math.random() * 101 ➔ genera un decimal entre 0 y 101 (sense aplegar a 101)
+        // Math.floor() ➔ redondeja cap abaix
+        // Push introdueix cada numero dins del array
+        let numeros = [];
+        for (i = 0; i < 15; i++){
+            numeros.push(Math.floor(Math.random() * 101));
+        }
+        console.log("Array original: " + numeros);
+
+        // Algoritme de ordenacio "Burbuja"
+        for (i = 0; i < numeros.length; i++){
+            // numeros.length -i -1 "-i no compara el ultim num ja comparat, -1 evita ixirse del bucle al fer numeros[j + 1]"
+            for (j = 0; j < numeros.length -i -1; j++){
+                // compara si la posicio j es major que la seguent posicio doncs [j+1] serà el mes xicotet
+                if (numeros[j] > numeros[j+1]){
+                    let minim = numeros[j]; // Guardem el número actual en la variable minim (temporal)
+                    numeros[j] = numeros[j+1]; // Posem en la posición j el número seguent (mes xicotet)
+                    // Posem el valor de minim (el mes gran) en la posició seguent
+                    numeros[j+1] = minim; // Coloca el gran (minim) en la posicio seguent
+                }
+            }
+        }
+        console.table("Array ordenat: " + numeros);
+    </script>
+    
+</body>
+</html>
+
+<!-- Crea un programa que genere un array de 15 números enters aleatoris i els ordene de menor a major. 
+Implementa el teu propi algorisme d'ordenació, sense fer servir funcions predefinides com sort(). -->
