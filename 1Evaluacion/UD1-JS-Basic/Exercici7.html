@@ -8,33 +8,38 @@
 <body>
     <h1>Exercici 7: Quadrícula amb bombes</h1>
     <script>
+        // Definim el número de files, columnes i bombes
         const files = 5;
         const columnes = 5;
         const numBombes = 10;
 
+        // Funció per a crear la matriu de joc
         function crearMatriu() {
-            const matriu = new Array(files);
+            const matriu = new Array(files); // Crear un array de files
             for(let i = 0; i < files; i++){
-                matriu[i] = new Array(columnes).fill("x");     
+                matriu[i] = new Array(columnes).fill("x"); // Omplim cada fila amb "x" (caselles buides)  
             }
             //Colocar bombes aleatories
             let bombesColocades = 0;
             while(bombesColocades < numBombes){
-                const fila = Math.floor(Math.random() * files);
-                const columna = Math.floor(Math.random() * columnes);
-                matriu[fila][columna] = "o";
-                bombesColocades++;
+                const fila = Math.floor(Math.random() * files); // Triem una fila aleatòria
+                const columna = Math.floor(Math.random() * columnes); // Triem una columna aleatòria
+                matriu[fila][columna] = "o"; // Col·loquem la bomba ("o")
+                bombesColocades++; // Incrementem el comptador de bombes col·locades
             }
             return matriu;
         }
         //Funció per a jugar
         function jugar(){
-            const matriu = crearMatriu();
-            console.table(matriu);
-            let bombesTrovades = 0;
-            let eixir = false;
+            const matriu = crearMatriu(); // Creem el camp de mines
+            console.table(matriu); // Mostrem la matriu per consola (només per al programador)
 
+            let bombesTrovades = 0; // Comptador de bombes trobades
+            let eixir = false; // Variable per a controlar si l'usuari vol eixir
+
+            // Bucle principal del joc
             while(bombesTrovades < numBombes && !eixir){
+                // Demanem coordenades a l'usuari
                 const entrada = prompt("Introdueix 2 números entre el 0 i el 4 separats per un espai o escriu eixir per finalitzar el joc):");
                 //Comprovacio si l'usuari vol finalitzar el joc.
                 if(entrada.toLowerCase() === 'eixir'){
@@ -42,11 +47,15 @@
                     eixir = true;
                     break;
                 }
+
+                 // Separem les coordenades i les convertim a número
                 const [x, y] = entrada.split (' ').map(Number);
+
+                // Comprovem que les coordenades estiguen dins de la matriu
                 if(x >= 0 && x < columnes && y >= 0 && y < files){
                     if(matriu[y][x] === "o"){ //Comprova si hi ha una bomba
                         alert("Boom! Bomba trovada");
-                        bombesTrovades++;
+                        bombesTrovades++; // Sumem una bomba trobada
                     } else {
                         alert("No hi ha bombes en ixa posició");
                     }
@@ -54,10 +63,12 @@
                     alert("Coordenades incorrectes");
                 }
             }
+            // Comprovem si s'han trobat totes les bombes
             if(!eixir && bombesTrovades === numBombes){
                 alert("Has trovat totes les bombes!");
             }
         }
+        // Iniciem el joc
         jugar();
 
     </script>
