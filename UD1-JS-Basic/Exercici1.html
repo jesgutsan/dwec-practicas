@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificació de notes</title>
+</head>
+<h1>Exercici 1 </h1>
+<body>
+    <script>
+        var nota = prompt('Introdueix la nota')
+        nota = nota.replace(',', '.'); // Por si el usuario introduce una coma 
+        nota = parseFloat(nota);        // Convierte a número decimal
+        if (nota < 5){
+            alert ("Insuficient")
+        }
+        else if (nota >= 5 && nota <= 5.9){
+            alert ("Suficient")
+        }
+        else if (nota >= 6 && nota <= 6.9){
+            alert ("Bé")
+        }
+        else if (nota >= 7 && nota <= 8.9){
+            alert ("Notable")
+        }else if (nota >= 9 && nota <= 10){
+            alert ("Excel·lent")  
+        }else {
+            alert ("Introdueix una nota valida")
+        }
+    </script>
+    
+</body>
+</html>
+<!-- Fes un programa que demane la nota d'un alumne (de 0 a 10) i mostre la classificació corresponent:
+
+0-4.9: Insuficient
+5-5.9: Suficient
+6-6.9: Bé
+7-8.9: Notable
+9-10: Excel·lent
+Si la nota introduïda no és vàlida (fora del rang de 0 a 10), el programa ha de mostrar un missatge d'error. -->
