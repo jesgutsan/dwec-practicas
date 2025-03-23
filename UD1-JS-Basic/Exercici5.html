@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercici 5</title>
+</head>
+<body>
+    <h1>Menú d'operacions aritmètiques</h1>
+    <script>
+        // Mostrem un menú d'operacions i demanem a l'usuari que trie una opció (del 1 al 5)
+        let operacio = prompt("Tria 1 operació;\n1. sumar\n2. restar\n3. multiplicar\n4. dividir\n5. eixir");
+
+        // Convertim la resposta de l'usuari a un número enter
+        operacio = parseInt(operacio);
+
+         // Si l'usuari tria una opció entre 1 i 4, fem l'operació corresponent
+        if(operacio >= 1 && operacio <= 4){
+
+            // Demanem el primer número i el convertim a número decimal
+            let num1 = parseFloat(prompt("Ingresa el primer número: "));// Demanem el primer número i el convertim a número decimal
+            let num2 = parseFloat(prompt("Ingresa el segon número: "));
+            
+            // Fem un switch per decidir quina operació s'ha de fer segons l'opció triada
+            switch(operacio) {
+                case 1:
+                let suma = num1 + num2;
+                console.log("Resultat suma: " + (suma));
+                break;
+                case 2:
+                    let resta = num1 - num2;
+                    console.log("Resultat resta: " + resta);
+                    break;
+                case 3:
+                    let multiplicació = num1 * num2;
+                    console.log("Resultat multiplicació: " + multiplicació);
+                    break;
+                case 4:
+                    // Comprovem si el divisor és 0 per evitar l'error de dividir per 0
+                if (num1 && num2 === 0) {
+                    console.log("No es pot dividir entre 0");
+                    } else {
+                        let divisio = num1 / num2; 
+                        console.log("Resultat divisió: " + divisio);
+                        break;
+                    }
+                }
+
+        // Si l'usuari tria l'opció 5, finalitzem el programa
+        } else if (operacio === 5) {
+            console.log("Eixint del programa");
+
+        }
+    </script>
+    
+</body>
+</html>
+
+<!-- Fes un programa que mostre un menú amb 5 opcions:
+
+1.Sumar
+2.Restar
+3.Multiplicar
+4.Dividir
+5.Eixir
+Quan es trie una operació (sumar, restar, multiplicar o dividir), 
+el programa ha de demanar dos números i mostrar el resultat de l'operació. Si es tria l'opció Eixir, el programa es tancarà. -->
