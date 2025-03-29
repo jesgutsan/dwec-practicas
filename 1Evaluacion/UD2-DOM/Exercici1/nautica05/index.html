@@ -272,7 +272,7 @@
         <li><a href="http://www.google.com/trends">Google Trends</a></li>
         <li><a href="http://www.luminous-landscape.com/">Luminous-landscape </a></li>
         <li><a href="www.studiotwentyeight.net/">Kols themes</a></li>
-		<li><a href="http://www.iconaholic.com/">iconaholic</a></li>
+		    <li><a href="http://www.iconaholic.com/">iconaholic</a></li>
         <li><a href="http://www.marvilla.us/">Iconica Custom Icons</a></li>
         <li><a href="http://www.rad-e8.com/">rad-e8</a></li>
         <li><a href="http://www.freundt.org/florian/index.htm">florian</a></li>
@@ -319,38 +319,57 @@
   window.onload = function() { 
   
   // 1.1 Trau un alert informant del número d'enllaços que hi ha 
-  let links = document.getElementsByTagName('a');
-  alert ('Número de enllaços ' + links.length);
+  /*let links = document.getElementsByTagName('a');
+  //alert ('Número de enllaços ' + links.length);
+  */
+  let links = document.querySelectorAll('a');
+  let count = 0;
+  for (const link of links){
+    count++;
+  }
+  alert ('Número de enllaços: ' + count)
 
   // 1.2 Modifica dinàmicament la imatge del logo
   document.getElementById('logo').src = 'images/logo.png';
+  
 
   // 1.3 Modifica dinàmicament els textos del menú principal
 
   // Cambia el text del primer enllaç
-  document.getElementById('title1').innerText = "layout 1";
-  document.getElementById('desc1').innerText = "mini layout 1";
+  document.getElementById('title1').innerHTML = "layout 1";
+  document.getElementById('desc1').innerHTML = "mini layout 1";
   
-  document.getElementById('title2').innerText = "layout 2";
-  document.getElementById('desc2').innerText = "mini layout 2;"
+  document.getElementById('title2').innerHTML = "layout 2";
+  document.getElementById('desc2').innerHTML = "mini layout 2;"
 
-  document.getElementById('title3').innerText = "layout 3";
-  document.getElementById('desc3').innerText = "mini layout 3";
+  document.getElementById('title3').innerHTML = "layout 3";
+  document.getElementById('desc3').innerHTML = "mini layout 3";
 
-  document.getElementById('title4').innerText = "layout 4";
-  document.getElementById('desc4').innerText = "mini layout 4";
+  document.getElementById('title4').innerHTML = "layout 4";
+  document.getElementById('desc4').innerHTML = "mini layout 4";
 
   // 1.4 Elimina dinàmicament la part dels favorite links.
 
   // selecciona el <h3> que conté el id='links'
-  const favoriteLinksH3 = document.getElementById('links').parentElement; 
+  var favoriteLinksH3 = document.getElementById('links').parentElement; 
 
   // Seleciona el <ul> que conté els enllaços
-  const favoriteLinksLlista = favoriteLinksH3.nextElementSibling; 
-  
+  var favoriteLinksLlista = favoriteLinksH3.nextElementSibling; 
     favoriteLinksH3.remove(); 
     favoriteLinksLlista.remove();  
   
+  
+  /* Opció canviant el id del submenu
+  //Obtindre el <span id = "links"
+  var span = document.getElementById("links");
+  // 2. Accedir al pare, que es el <h3>
+  var h3 = span.parentNode;
+  // 3. Eliminar el <h3>
+  h3.parentNode.removeChild(h3);
+  // Eliminar la llista de enllaÇos (submenu4)
+  var favoritelinks = document.querySelector('ul.submenu4');
+  favoritelinks.parentNode.removeChild(favoritelinks);
+  */
   }
 
   </script>
